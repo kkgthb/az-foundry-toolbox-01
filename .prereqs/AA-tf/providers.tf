@@ -1,0 +1,22 @@
+# # Configure the AzAPI provider for the AI Gateway preview resources not yet
+# # supported by AzureRM.
+# provider "azapi" {
+#   alias           = "demo"
+#   tenant_id       = var.entra_tenant_id
+#   subscription_id = var.az_sub_id
+# }
+
+# Configure the AzureRM provider
+provider "azurerm" {
+  features {}
+  alias                           = "demo"
+  tenant_id                       = var.entra_tenant_id
+  subscription_id                 = var.az_sub_id
+  resource_provider_registrations = "none"
+}
+
+# Configure the MSGraph provider
+provider "msgraph" {
+  alias     = "demo"
+  tenant_id = var.entra_tenant_id
+}
